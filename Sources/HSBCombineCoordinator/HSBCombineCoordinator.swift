@@ -14,7 +14,7 @@ public class BaseCoordinator<ResultType> {
 		childCoordinators[coordinator.identifier] = nil
 	}
 	
-	public func coordinate<T>(to coordinator: BaseCoordinator<T>) -> AnyPublisher<T, Never> {
+	open func coordinate<T>(to coordinator: BaseCoordinator<T>) -> AnyPublisher<T, Never> {
 		store(coordinator: coordinator)
 		return coordinator
 			.start()
