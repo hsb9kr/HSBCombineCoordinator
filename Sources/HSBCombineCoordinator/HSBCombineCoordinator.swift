@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-public open class BaseCoordinator<ResultType> {
+open class BaseCoordinator<ResultType> {
 	private let identifier = UUID()
 	private var childCoordinators = [UUID: Any]()
 	public var cancellables: Set<AnyCancellable> = []
