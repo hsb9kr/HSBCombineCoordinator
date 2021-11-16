@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-public class BaseCoordinator<ResultType> {
+open class BaseCoordinator<ResultType> {
 	private let identifier = UUID()
 	private var childCoordinators = [UUID: Any]()
 	public var cancellables: Set<AnyCancellable> = []
@@ -12,6 +12,10 @@ public class BaseCoordinator<ResultType> {
 	
 	private func free<T>(coordinator: BaseCoordinator<T>) {
 		childCoordinators[coordinator.identifier] = nil
+	}
+	
+	public init() {
+		
 	}
 	
 	open func coordinate<T>(to coordinator: BaseCoordinator<T>) -> AnyPublisher<T, Never> {
